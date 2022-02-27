@@ -30,3 +30,17 @@ jobs:
     - run: git clone https://github.com/rittaschool/shared repo2
     - run: git clone https://github.com/rittaschool/ritta-next repo3
     - run: node index.js
+    - name: Configure Git and add files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "js.org.json[bot]"
+        git add -A
+    - name: Commit
+      id: can_commit
+      run: |
+        commit_message=$(git commit -m "Updated the cake is a lie" -a | tr -d '\n' || true)
+        echo "::set-output name=commit_message::$commit_message"
+    - name: Push or leave
+      id: nothing_committed
+      if: false == contains(steps.can_commit.outputs.commit_message, 'nothing to commit')
+      run: git push origin master
