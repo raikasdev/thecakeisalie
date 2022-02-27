@@ -1,0 +1,12 @@
+{
+  "name": "TheCakeIsALie",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "The cake is a lie! The git project stats calculator powered by Github Actions",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^16.3.0",
+    "graphql-request": "^4.0.0"
+  }
+}
