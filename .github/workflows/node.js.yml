@@ -24,6 +24,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: npm install
     - run: git clone https://github.com/rittaschool/ritta-server repo1
     - run: git clone https://github.com/rittaschool/shared repo2
     - run: git clone https://github.com/rittaschool/ritta-next repo3
